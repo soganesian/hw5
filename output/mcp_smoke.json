@@ -1,0 +1,110 @@
+{
+  "server": "mcp_server/server.py",
+  "database": "data/campus_customs_new.db",
+  "execution_client": "MCP Python SDK stdio client (direct MCP calls)",
+  "claude_code_status": "Not logged in; prompts could not be sent through Claude Code.",
+  "tests": [
+    {
+      "prompt": "Use the campus-customs MCP server to list open tickets. Return the tool result.",
+      "tool_name": "list_tickets",
+      "tool_output": {
+        "result": [
+          {
+            "id": 101,
+            "type": "customer_order",
+            "requester": "Tauhid Zaman",
+            "subject": "Bulldog tee",
+            "sku": "CC-TEE-WHITE",
+            "size": "S",
+            "qty": 1,
+            "lease_id": null,
+            "invoice_id": 501,
+            "status": "open",
+            "notes": "Needs a tee in size S.",
+            "created_at": "2026-08-31T09:15:00-04:00"
+          },
+          {
+            "id": 102,
+            "type": "rent_notice",
+            "requester": "Elm City Properties",
+            "subject": "Rent due",
+            "sku": null,
+            "size": null,
+            "qty": null,
+            "lease_id": 1,
+            "invoice_id": null,
+            "status": "open",
+            "notes": "Email: shop rent due in 2 days.",
+            "created_at": "2026-08-31T11:05:00-04:00"
+          },
+          {
+            "id": 103,
+            "type": "price_override",
+            "requester": "Yale AI Club",
+            "subject": "Bulk hoodie discount",
+            "sku": "CC-HOOD-NAVY",
+            "size": "M",
+            "qty": 20,
+            "lease_id": null,
+            "invoice_id": null,
+            "status": "open",
+            "notes": "Student org wants 20 hoodies, size M, asking for a bulk discount.",
+            "created_at": "2026-08-31T16:55:00-04:00"
+          }
+        ]
+      },
+      "is_error": false
+    },
+    {
+      "prompt": "Use the campus-customs MCP server to check inventory and pricing for SKU CC-HOOD-NAVY, size M. Return the tool result.",
+      "tool_name": "get_inventory_and_pricing",
+      "tool_output": {
+        "inventory": {
+          "sku": "CC-HOOD-NAVY",
+          "name": "Basic Hoodie Big Yale",
+          "size": "M",
+          "qty": 8,
+          "location": "Aisle A"
+        },
+        "pricing": {
+          "sku": "CC-HOOD-NAVY",
+          "unit_cost": 22.0,
+          "list_price": 58.0
+        }
+      },
+      "is_error": false
+    },
+    {
+      "prompt": "Use the campus-customs MCP server to retrieve the database records related to ticket 102. Return the tool result.",
+      "tool_name": "get_ticket_related_records",
+      "tool_output": {
+        "ticket": {
+          "id": 102,
+          "type": "rent_notice",
+          "requester": "Elm City Properties",
+          "subject": "Rent due",
+          "sku": null,
+          "size": null,
+          "qty": null,
+          "lease_id": 1,
+          "invoice_id": null,
+          "status": "open",
+          "notes": "Email: shop rent due in 2 days.",
+          "created_at": "2026-08-31T11:05:00-04:00"
+        },
+        "lease": {
+          "id": 1,
+          "space_name": "Chapel Street shop",
+          "landlord": "Elm City Properties",
+          "monthly_rent": 2400.0,
+          "next_due": "2026-09-02",
+          "notes": null
+        },
+        "invoice": null,
+        "vendor": null,
+        "vendor_invoices": []
+      },
+      "is_error": false
+    }
+  ]
+}

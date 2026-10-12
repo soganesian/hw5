@@ -1,0 +1,62 @@
+{
+  "run_date": "2026-10-12",
+  "database": "data/campus_customs_new.db",
+  "resolution_semantics": "resolved means the agent workflow completed and the dashboard may mark it resolved; the database ticket rows remain open because agent recommendations require follow-up",
+  "tickets": [
+    {
+      "id": 101,
+      "final_status": "resolved",
+      "database_status": "open",
+      "audit_run_id": "036360d5-cd69-4719-8d54-ac67266e1f44",
+      "short_outcome": "Workflow completed. One size-S tee is out of stock; open overdue invoice 501 blocks restock. Accounting prepared an $840 invoice payment draft for human review. Boss recommends keeping the database ticket open pending approval and restock decisions.",
+      "agent_contributions": {
+        "boss": "Coordinated Inventory and Accounting, consolidated the verified stock/invoice/cash facts, prepared a non-sent customer status draft, and recommended no restock until invoice 501 is addressed.",
+        "inventory": "Checked CC-TEE-WHITE size S: 0 on hand versus 1 requested, $8 unit cost/$28 list price, Bulldog Print Co. has a 5-day lead time, and its open $840 invoice blocks a new restock.",
+        "accounting": "Confirmed invoice 501 is open and overdue as of desk date 2026-08-31, checked $3,400 checking, and drafted the $840 invoice payment requiring human approval."
+      },
+      "pending_payment_drafts": [
+        { "kind": "invoice", "ref_id": 501, "amount": "840.00", "payee": "Bulldog Print Co.", "account": "checking", "requires_human_approval": true }
+      ],
+      "human_approvals_recorded": []
+    },
+    {
+      "id": 102,
+      "final_status": "resolved",
+      "database_status": "open",
+      "audit_run_id": "1fe2f1fa-c0e7-4f5a-b2b7-961af3a13523",
+      "short_outcome": "Workflow completed. Lease 1 rent of $2,400 is due 2026-09-02. Accounting drafted rent payment for human review; no payment was executed. Boss recommends verifying obligations and the lease reference before approval.",
+      "agent_contributions": {
+        "boss": "Reviewed linked lease context and delegated rent/cash assessment to Accounting; consolidated the result and flagged the missing rent-specific payment instructions/reference ambiguity.",
+        "accounting": "Compared lease 1 next_due 2026-09-02 with desk date 2026-08-31, checked $3,400 checking and the open $840 invoice, and drafted $2,400 rent payment for approval."
+      },
+      "delegation_note": "Facilities did not run; the actual delegation was Boss → Accounting.",
+      "pending_payment_drafts": [
+        { "kind": "rent", "ref_id": 1, "amount": "2400.00", "payee": "Elm City Properties", "account": "checking", "requires_human_approval": true }
+      ],
+      "human_approvals_recorded": []
+    },
+    {
+      "id": 103,
+      "final_status": "resolved",
+      "database_status": "open",
+      "audit_run_id": "edfedf0e-d054-4a02-af28-d5931934d9c9",
+      "short_outcome": "Workflow completed. Inventory is 8 of 20 hoodies (short by 12); database pricing is $22 cost/$58 list. No record-backed bulk discount authority or payment/PO proposal was found. Boss recommends leaving the database ticket open pending pricing and fulfillment decisions.",
+      "agent_contributions": {
+        "boss": "Coordinated Inventory and Accounting, reported verified price/stock facts, drafted an internal non-sent customer response, and recommended no quote until pricing authority and fulfillment are confirmed.",
+        "inventory": "Checked CC-HOOD-NAVY size M: 8 units in Aisle A versus 20 requested, with $22 unit cost and $58 list price.",
+        "accounting": "Found no pricing policy or authorization establishing a bulk discount; reviewed financial context but proposed no payment or purchase order."
+      },
+      "pending_payment_drafts": [],
+      "human_approvals_recorded": []
+    }
+  ],
+  "cash_reconciliation": {
+    "starting_checking_balance": "3400.00",
+    "ticket_101_actual_outflow": "0.00",
+    "ticket_102_actual_outflow": "0.00",
+    "ticket_103_actual_outflow": "0.00",
+    "ending_checking_balance": "3400.00",
+    "calculation": "3400.00 - 0.00 - 0.00 - 0.00 = 3400.00",
+    "payments_recorded": 0
+  }
+}
