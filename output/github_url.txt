@@ -1,1 +1,1 @@
-PENDING — GitHub CLI authentication is invalid for the configured account. Authenticate with `gh auth login`, create/publish this repository as public, then replace this line with its canonical HTTPS URL.
+https://github.com/soganesian/hw5
